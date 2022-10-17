@@ -7,7 +7,7 @@
   >
     <template>
       <div>
-        <div class="q-pa-sm q-gutter-sm">
+        <div class="q-gutter-sm">
           <q-bar dense class="bg-red-10 text-black">
             <div>Your app is Running</div>
             <q-icon name="check" />
@@ -26,8 +26,51 @@
             <q-toolbar>
               <q-btn flat round dense icon="assignment_ind" />
               <q-toolbar-title>All Red Dead Info</q-toolbar-title>
-              <q-btn flat round dense icon="web" class="q-mr-xs" />
-              <q-btn flat round dense icon="gamepad" />
+              <q-btn flat round dense icon="gamepad" class="q-mr-xs" />
+              <q-btn flat round dense icon="web" @click="dialog = true" />
+              <q-dialog v-model="dialog">
+                <q-card class="bg-red-10">
+                  <q-card-section>
+                    <div style="color: white" class="text-h6 flex flex-center">
+                      Info
+                    </div>
+                  </q-card-section>
+
+                  <q-card-section class="q-pt-none">
+                    The world of Red Dead Redemption 2 spans five fictitious
+                    U.S. states. The states of New Hanover, Ambarino, and
+                    Lemoyne are new to the series, and are located to the
+                    immediate north and east of Red Dead Redemption's world,
+                    whilst the states of New Austin and West Elizabeth return
+                    from Red Dead Redemption. The states are centered on the San
+                    Luis and Lannahechee Rivers and the shores of Flat Iron
+                    Lake. Ambarino is a mountain wilderness, with the largest
+                    settlement being the Wapiti Native American reservation; New
+                    Hanover encompasses a sweeping valley and woody foothills
+                    that feature the cattle town of Valentine, the riverside Van
+                    Horn Trading Post, and the coal town of Annesburg; and
+                    Lemoyne is composed of bayous and plantations resembling the
+                    southeastern United States, and is home to the Southern town
+                    of Rhodes, the village of Lagras, and the former French
+                    colony of Saint Denis, analogous to New Orleans. West
+                    Elizabeth consists of wide plains, dense forests, and the
+                    prosperous port town of Blackwater. This region has been
+                    expanded from the original Red Dead Redemption with a vast
+                    northern portion containing the mountain resort town of
+                    Strawberry. New Austin is an arid desert region on the
+                    border with Mexico and centered on the frontier towns of
+                    Armadillo and Tumbleweed, also featured in the original
+                    game. Parts of New Austin and West Elizabeth have been
+                    redesigned to reflect the earlier time; for example,
+                    Blackwater is still under development, while Armadillo is a
+                    ghost town as a result of a cholera outbreak.
+                  </q-card-section>
+
+                  <q-card-actions align="right">
+                    <q-btn flat label="Close" color="black" v-close-popup />
+                  </q-card-actions>
+                </q-card>
+              </q-dialog>
             </q-toolbar>
             <q-toolbar inset>
               <q-breadcrumbs active-color="black" style="font-size: 16px">
@@ -43,7 +86,7 @@
       <template>
         <div class="q-px-lg q-pb-md text-white">
           <q-timeline color="red-10">
-            <q-timeline-entry heading class="text-black">
+            <q-timeline-entry heading class="text-black text-center">
               Red Dead Redemption 2
               <br />
             </q-timeline-entry>
@@ -54,7 +97,7 @@
               side="left"
               icon="info"
             >
-              <div>
+              <div class="text-weight-bolder">
                 After a robbery goes badly wrong in the western town of
                 Blackwater, Arthur Morgan and the Van der Linde gang are forced
                 to flee. With federal agents and the best bounty hunters in the
@@ -70,7 +113,7 @@
               side="right"
               icon="fa-solid fa-hat-cowboy-side"
             >
-              <div>
+              <div class="text-weight-bolder">
                 Arthur Morgan is a cold, brooding outlaw who often resorts to
                 violence and has very few qualms about killing. At his worst
                 Arthur could be extremely ruthless and completely unsympathetic
@@ -94,7 +137,7 @@
               subtitle="A gang of criminals, dissidents and free-thinkers who have chosen to reject a corrupt system of power and live instead by their own code."
               side="left"
             >
-              <div>
+              <div class="text-weight-bolder">
                 The Van der Linde gang, also referred to as Dutch's Boys is an
                 outlaw gang featured in Red Dead Redemption 2 as the main
                 protagonist faction. It is also mentioned in Red Dead
@@ -109,7 +152,7 @@
               subtitle="People don't forget. Nothing gets forgiven."
               side="right"
             >
-              <div>
+              <div class="text-weight-bolder">
                 John has a strong dislike of birds and a rather dull
                 imagination, especially when compared to his son Jack. When it
                 comes to how he feels about religion, in-game quotes suggest
@@ -122,7 +165,7 @@
               side="left"
               icon="fa-solid fa-person"
             >
-              <div>
+              <div class="text-weight-bolder">
                 Characters are the driving force behind the narrative of Red
                 Dead Redemption 2 and include the various personalities and
                 figures the player may and will encounter throughout their time
@@ -135,7 +178,7 @@
               side="right"
               icon="fa-solid fa-money-bill-1-wave"
             >
-              <div>
+              <div class="text-weight-bolder">
                 As of August 2022, Red Dead Redemption has sold 45 million units
                 worldwide. The action-adventure game is developed by Rockstar
                 games under the parent company Take-Two Interactive. First
@@ -153,7 +196,7 @@
               side="left"
               icon="fa-regular fa-star"
             >
-              <div>
+              <div class="text-weight-bolder">
                 Red Dead Redemption 2 won 4 awards, more than any other title,
                 including Best Performance and Best Narrative.
               </div>
@@ -192,6 +235,10 @@
 
 <script>
 export default {
-  // name: 'PageName',
+  data() {
+    return {
+      dialog: false,
+    };
+  },
 };
 </script>

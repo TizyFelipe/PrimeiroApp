@@ -68,13 +68,13 @@ const linksData = [
   {
     title: "SupportChannel",
     caption: "support.rockstar",
-    icon: "warning",
+    icon: "fa-solid fa-circle-info",
     link: "https://support.rockstargames.com/br/categories/200013106",
   },
   {
     title: "Ballas Forum",
     caption: "forum.rockstar",
-    icon: "record_voice_over",
+    icon: "fa-solid fa-gun",
     link: "https://socialclub.rockstargames.com/crew/forum_drive_ballas/wall",
   },
   {

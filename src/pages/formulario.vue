@@ -1,7 +1,13 @@
 <template>
-  <q-page class="flex flex-center bg-grey-10">
+  <q-page
+    class="flex flex-center"
+    style="
+      background-image: url('https://www.xtrafondos.com/wallpapers/resized/red-dead-redemption-ii-10445.jpg?s=large');
+      background-size: cover;
+    "
+  >
     <div class="q-pa-md" style="max-width: 400px">
-      <q-card class="my-card bg-grey-7">
+      <q-card class="my-card bg-grey-7" style="border: solid black 1px">
         <q-card-section>
           <q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md">
             <q-input
@@ -19,7 +25,7 @@
               standout="bg-grey-7 text-white"
               dense
               filled
-              v-model="name"
+              v-model="login"
               label="New Login *"
               hint="login"
               lazy-rules
@@ -52,7 +58,11 @@
               :rules="[(val) => val.length == 15 || 'Type your phone ']"
             />
 
-            <q-toggle v-model="accept" label="I accept all the terms" />
+            <q-toggle
+              v-model="accept"
+              label="I accept all the terms"
+              color="positive"
+            />
 
             <div class="row justify-center">
               <q-btn
@@ -61,6 +71,7 @@
                 color="red-10"
                 text-color="black"
                 :disable="!accept"
+                to="/primeira"
               />
               <q-btn
                 label="Clear"
@@ -100,6 +111,7 @@ export default {
       adress: null,
       phone: null,
       accept: false,
+      login: null,
     };
   },
 
@@ -128,6 +140,7 @@ export default {
       this.adress = null;
       this.phone = null;
       this.accept = false;
+      this.login = null;
     },
   },
 };
